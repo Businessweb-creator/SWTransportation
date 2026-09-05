@@ -239,6 +239,18 @@
     padding:9px 16px;border-radius:100px;
   }
 
+  .fleet-photo{
+    position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;
+    margin-bottom:16px;background:var(--cloud);
+  }
+  .fleet-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .fleet-photo .photo-badge{
+    position:absolute;top:10px;left:10px;
+    background:rgba(15,23,23,0.72);color:#fff;
+    font-size:11px;font-weight:600;padding:5px 11px;border-radius:100px;
+  }
+  .fleet-credit{display:block;font-size:11px;color:var(--slate);margin-bottom:20px;}
+
   /* ---------- TIERS ---------- */
   .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .tier-card{
@@ -564,6 +576,11 @@
 
     <div class="fleet-grid">
       <div class="fleet-card">
+        <div class="fleet-photo">
+          <img src="https://images.pexels.com/photos/11329085/pexels-photo-11329085.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Contoh mobil kecil — bukan foto armada asli SW Trans" loading="lazy">
+          <span class="photo-badge">Contoh foto</span>
+        </div>
+        <span class="fleet-credit">Foto sampel dari Pexels, ganti dengan foto armada asli</span>
         <div class="fleet-top">
           <div class="fleet-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4l-2-5H7l-2 5v4Z"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></div>
           <span class="fleet-cap">4–6 penumpang</span>
@@ -581,6 +598,11 @@
       </div>
 
       <div class="fleet-card">
+        <div class="fleet-photo">
+          <img src="https://images.pexels.com/photos/37498790/pexels-photo-37498790.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Contoh minivan/Hiace — bukan foto armada asli SW Trans" loading="lazy">
+          <span class="photo-badge">Contoh foto</span>
+        </div>
+        <span class="fleet-credit">Foto sampel dari Pexels, ganti dengan foto armada asli</span>
         <div class="fleet-top">
           <div class="fleet-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="17" height="9" rx="2"/><path d="M19 11h2.5a1 1 0 0 1 .9.55L24 15v2h-5"/><circle cx="7" cy="19" r="1.7"/><circle cx="16.5" cy="19" r="1.7"/></svg></div>
           <span class="fleet-cap">12–15 penumpang</span>
