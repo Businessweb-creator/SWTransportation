@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SW Trans Tour & Travel — Perjalanan Dirancang, Bukan Sekadar Dijual</title>
+<meta name="description" content="SW Trans Tour & Travel: biro perjalanan untuk study tour, open trip, family gathering, MICE, wisata religi, hingga leisure premium. Konsultasi langsung via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E121B;
+    --navy-soft:#161C29;
+    --cyan:#2BB0DE;
+    --cyan-deep:#1C7FA6;
+    --cyan-pale:#CFEEF9;
+    --slate:#5B6674;
+    --cloud:#EEF1F4;
+    --cloud-2:#E3E7EC;
+    --ink:#12151C;
+    --gold:#CE9F4C;
+    --line:rgba(255,255,255,0.10);
+    --line-dark:rgba(14,18,27,0.10);
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cloud);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Bricolage Grotesque',sans-serif;
+    margin:0;
+    line-height:1.08;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:2.5px solid var(--cyan);outline-offset:3px;}
+  button{font-family:inherit;cursor:pointer;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(14,18,27,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{height:42px;width:auto;border-radius:6px;}
+  .brand-text{color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;}
+  .brand-text span{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:10.5px;color:var(--cyan);letter-spacing:0.04em;}
+  .nav-links{display:flex;gap:34px;}
+  .nav-links a{color:#C7CEDA;font-size:14.5px;font-weight:500;transition:color .15s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--cyan);color:var(--navy);
+    padding:11px 20px;border-radius:100px;
+    font-weight:700;font-size:14px;
+    transition:background .15s, transform .15s;
+  }
+  .nav-cta:hover{background:#3FC1EE;transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 0;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .eyebrow-line{
+    display:flex;align-items:center;gap:10px;
+    color:var(--cyan);font-size:14px;font-weight:600;
+    margin-bottom:22px;
+  }
+  .eyebrow-line::before{content:"";width:26px;height:2px;background:var(--cyan);display:block;}
+  .hero h1{
+    font-size:clamp(34px,4.6vw,54px);
+    color:#fff;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--cyan);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:17px;
+    line-height:1.65;
+    color:#C7CEDA;
+    max-width:480px;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:15px 26px;border-radius:100px;
+    font-weight:700;font-size:15px;
+    border:1.5px solid transparent;
+    transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn-primary{background:var(--cyan);color:var(--navy);}
+  .btn-primary:hover{transform:translateY(-2px);background:#3FC1EE;}
+  .btn-ghost{border-color:rgba(255,255,255,0.28);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-2px);}
+  .btn-dark{border-color:rgba(14,18,27,0.2);color:var(--ink);}
+  .btn-dark:hover{border-color:var(--ink);transform:translateY(-2px);}
+
+  .hero-stats{
+    display:flex;gap:34px;margin-top:52px;
+    padding-top:26px;border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .hero-stats div b{
+    display:block;font-family:'Bricolage Grotesque',sans-serif;
+    font-size:26px;color:#fff;font-weight:700;
+  }
+  .hero-stats div span{font-size:12.5px;color:#8B95A5;}
+
+  .hero-art{position:relative;height:420px;}
+  .hero-art svg{width:100%;height:100%;}
+
+  /* ---------- SECTION SHELLS ---------- */
+  section{padding:96px 0;}
+  .sec-head{max-width:640px;margin-bottom:52px;}
+  .sec-tag{
+    display:inline-block;color:var(--cyan-deep);font-weight:700;
+    font-size:13.5px;margin-bottom:14px;
+  }
+  .sec-tag.light{color:var(--cyan);}
+  .sec-head h2{font-size:clamp(26px,3.4vw,38px);color:var(--ink);}
+  .sec-head p{margin-top:16px;font-size:16px;line-height:1.65;color:var(--slate);}
+  .light-on-dark .sec-head h2{color:#fff;}
+  .light-on-dark .sec-head p{color:#AEB7C6;}
+
+  /* ---------- SEGMENTS ---------- */
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:38px;}
+  .filter-pill{
+    padding:9px 18px;border-radius:100px;font-size:13.5px;font-weight:600;
+    border:1.5px solid var(--line-dark);background:#fff;color:var(--slate);
+    transition:all .15s;
+  }
+  .filter-pill.active, .filter-pill:hover{
+    background:var(--navy);color:#fff;border-color:var(--navy);
+  }
+  .seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .seg-card{
+    background:#fff;border-radius:var(--radius);padding:30px 26px;
+    border:1px solid var(--line-dark);
+    transition:transform .18s, box-shadow .18s;
+  }
+  .seg-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(14,18,27,0.08);}
+  .seg-icon{
+    width:46px;height:46px;border-radius:11px;
+    background:linear-gradient(145deg,var(--cyan-pale),#fff);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;
+  }
+  .seg-icon svg{width:24px;height:24px;stroke:var(--cyan-deep);}
+  .seg-card h3{font-size:18px;color:var(--ink);margin-bottom:9px;}
+  .seg-card p{font-size:14.5px;line-height:1.6;color:var(--slate);}
+  .seg-tags{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap;}
+  .seg-tags span{
+    font-size:11px;font-weight:600;color:var(--cyan-deep);
+    background:var(--cyan-pale);padding:4px 10px;border-radius:100px;
+  }
+  .seg-card[hidden]{display:none;}
+
+  /* ---------- DESTINATIONS ---------- */
+  .dest{background:var(--navy);color:#fff;}
+  .dest-tabs{display:flex;gap:8px;margin-bottom:36px;}
+  .dest-tab{
+    padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;
+    border:1.5px solid var(--line);color:#AEB7C6;background:transparent;
+  }
+  .dest-tab.active{background:var(--cyan);border-color:var(--cyan);color:var(--navy);}
+  .dest-list{display:none;grid-template-columns:1fr 1fr;gap:0 48px;}
+  .dest-list.active{display:grid;}
+  .dest-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 0;border-bottom:1px solid var(--line);gap:14px;
+  }
+  .dest-row .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;}
+  .dest-row .desc{font-size:13.5px;color:#8B95A5;margin-top:4px;}
+  .dest-row .badge{
+    font-size:11px;font-weight:700;color:var(--navy);background:var(--cyan);
+    padding:4px 11px;border-radius:100px;white-space:nowrap;
+  }
+
+  /* ---------- FLEET / SEWA KENDARAAN ---------- */
+  .fleet{background:var(--cloud-2);}
+  .fleet-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .fleet-card{
+    background:#fff;border:1px solid var(--line-dark);border-radius:var(--radius);
+    padding:32px 30px;display:flex;flex-direction:column;
+  }
+  .fleet-top{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+  .fleet-icon{
+    width:52px;height:52px;border-radius:12px;flex-shrink:0;
+    background:linear-gradient(145deg,var(--cyan-pale),#fff);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .fleet-icon svg{width:28px;height:28px;stroke:var(--cyan-deep);}
+  .fleet-cap{font-size:12px;font-weight:700;color:var(--cyan-deep);background:var(--cyan-pale);padding:5px 12px;border-radius:100px;white-space:nowrap;}
+  .fleet-card h3{font-size:21px;margin-top:20px;color:var(--ink);}
+  .fleet-card p.fleet-desc{margin-top:8px;font-size:14.5px;color:var(--slate);line-height:1.6;}
+  .fleet-use{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:10px;}
+  .fleet-use li{display:flex;gap:9px;font-size:14px;color:var(--ink);align-items:flex-start;}
+  .fleet-use svg{width:16px;height:16px;flex-shrink:0;margin-top:3px;stroke:var(--cyan-deep);}
+  .fleet-note{margin-top:18px;font-size:12.5px;color:var(--slate);}
+  .fleet-card .btn{margin-top:24px;justify-content:center;width:100%;}
+  .fleet-chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;}
+  .fleet-chip{
+    font-size:13px;font-weight:600;color:var(--ink);
+    background:#fff;border:1px solid var(--line-dark);
+    padding:9px 16px;border-radius:100px;
+  }
+
+  /* ---------- TIERS ---------- */
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tier-card{
+    background:#fff;border:1.5px solid var(--line-dark);border-radius:var(--radius);
+    padding:34px 28px;display:flex;flex-direction:column;
+  }
+  .tier-card.feat{
+    border-color:var(--gold);
+    background:linear-gradient(180deg,#fff, #FCF7ED);
+    position:relative;
+  }
+  .tier-card.feat::before{
+    content:"Paling Diminati";
+    position:absolute;top:-13px;left:28px;
+    background:var(--gold);color:#fff;font-size:11.5px;font-weight:700;
+    padding:5px 13px;border-radius:100px;
+  }
+  .tier-name{font-size:13px;font-weight:700;color:var(--cyan-deep);letter-spacing:0.01em;}
+  .tier-card.feat .tier-name{color:var(--gold);}
+  .tier-card h3{font-size:24px;margin-top:9px;color:var(--ink);}
+  .tier-card p.tier-desc{margin-top:10px;font-size:14px;color:var(--slate);line-height:1.6;}
+  .tier-list{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .tier-list li{display:flex;gap:10px;font-size:14px;color:var(--ink);align-items:flex-start;}
+  .tier-list svg{width:17px;height:17px;flex-shrink:0;margin-top:2px;stroke:var(--cyan-deep);}
+  .tier-card.feat .tier-list svg{stroke:var(--gold);}
+  .tier-card .btn{margin-top:26px;justify-content:center;width:100%;}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+  .why-item{padding-top:22px;border-top:2px solid var(--ink);}
+  .why-item h3{font-size:17px;margin-bottom:10px;}
+  .why-item p{font-size:14px;color:var(--slate);line-height:1.6;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--cloud-2);}
+  .process-row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .p-step{position:relative;padding-top:52px;}
+  .p-step .num{
+    position:absolute;top:0;left:0;font-family:'Bricolage Grotesque',sans-serif;
+    font-size:34px;font-weight:700;color:var(--cyan-pale);
+    -webkit-text-stroke:1.5px var(--cyan-deep);
+  }
+  .p-step h3{font-size:15.5px;margin-bottom:8px;}
+  .p-step p{font-size:13.5px;color:var(--slate);line-height:1.55;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .test-card{background:#fff;border-radius:var(--radius);padding:28px;border:1px solid var(--line-dark);}
+  .test-card p.quote{font-size:15px;line-height:1.65;color:var(--ink);}
+  .test-who{display:flex;align-items:center;gap:11px;margin-top:20px;}
+  .test-avatar{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--navy);color:var(--cyan);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:14px;font-family:'Bricolage Grotesque',sans-serif;
+  }
+  .test-who .name{font-size:13.5px;font-weight:700;}
+  .test-who .role{font-size:12px;color:var(--slate);}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--navy);color:#fff;position:relative;overflow:hidden;
+  }
+  .cta-banner .wrap{position:relative;z-index:2;text-align:center;}
+  .cta-banner h2{font-size:clamp(26px,4vw,42px);color:#fff;max-width:680px;margin:0 auto;}
+  .cta-banner p{margin-top:18px;color:#AEB7C6;font-size:16px;}
+  .cta-banner .btn-primary{margin-top:30px;}
+  .cta-banner .contact-line{margin-top:22px;font-size:14.5px;color:#8B95A5;}
+  .cta-banner .contact-line b{color:#fff;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0A0D13;color:#8B95A5;padding:70px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;}
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .foot-brand img{height:36px;border-radius:6px;}
+  .foot-brand span{color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;}
+  .foot-col h4{color:#fff;font-size:14px;margin-bottom:16px;}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+  .foot-col a{font-size:13.5px;transition:color .15s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:10px;
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:200;
+    background:var(--cyan);color:var(--navy);
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 28px rgba(43,176,222,0.45);
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  .wa-float svg{width:27px;height:27px;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 10px 28px rgba(43,176,222,0.45);}
+    50%{box-shadow:0 10px 34px rgba(43,176,222,0.7);}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{height:280px;order:-1;}
+    .seg-grid{grid-template-columns:repeat(2,1fr);}
+    .dest-list{grid-template-columns:1fr;}
+    .fleet-grid{grid-template-columns:1fr;}
+    .tier-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .process-row{grid-template-columns:repeat(2,1fr);row-gap:34px;}
+    .test-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;row-gap:34px;}
+  }
+  @media (max-width:600px){
+    section{padding:64px 0;}
+    .seg-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .process-row{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero{padding-top:76px;}
+    .hero-stats{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <img src="sw-trans-logo.jfif" alt="Logo SW Trans Tour & Travel">
+      <div class="brand-text">SW Trans<span>TOUR & TRAVEL</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#layanan">Layanan</a>
+      <a href="#destinasi">Destinasi</a>
+      <a href="#sewa">Sewa Kendaraan</a>
+      <a href="#paket">Paket</a>
+      <a href="#proses">Cara Pesan</a>
+      <a href="#testimoni">Testimoni</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20ingin%20tanya-tanya%20paket%20wisata" target="_blank" rel="noopener">
+      Chat WhatsApp
+    </a>
+    <button class="nav-toggle" aria-label="Buka menu">☰</button>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-line">Biro Perjalanan Wisata & Transportasi</div>
+      <h1>Perjalanan yang <em>dirancang</em>, bukan sekadar dijual.</h1>
+      <p class="lead">Dari study tour sekolah, open trip akhir pekan, family gathering kantor, sampai perjalanan dinas dan wisata religi — SW Trans menyusun itinerary dan armada yang pas untuk siapa pun yang bepergian.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20ingin%20konsultasi%20paket%20wisata" target="_blank" rel="noopener">
+          Konsultasi via WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#layanan">Lihat semua layanan</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>9+</b><span>Segmen perjalanan dilayani</span></div>
+        <div><b>2</b><span>Cakupan domestik & internasional</span></div>
+        <div><b>3</b><span>Tingkat layanan, budget–luxury</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="190" cy="200" r="130" stroke="#2BB0DE" stroke-width="1.4" opacity="0.55"/>
+        <ellipse cx="190" cy="200" rx="130" ry="46" stroke="#2BB0DE" stroke-width="1.1" opacity="0.4"/>
+        <ellipse cx="190" cy="200" rx="66" ry="130" stroke="#2BB0DE" stroke-width="1.1" opacity="0.4"/>
+        <line x1="60" y1="200" x2="320" y2="200" stroke="#2BB0DE" stroke-width="1.1" opacity="0.35"/>
+        <path d="M40 300 Q 190 200 260 260 T 460 150" stroke="#2BB0DE" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+        <path d="M40 300 Q 190 200 260 260 T 460 150" stroke="#0E121B" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <g transform="translate(300,205)">
+          <rect x="0" y="18" width="112" height="46" rx="10" fill="#161C29" stroke="#2BB0DE" stroke-width="1.6"/>
+          <path d="M78 18 h20 a10 10 0 0 1 10 10 v14 h-30 z" fill="#161C29" stroke="#2BB0DE" stroke-width="1.6"/>
+          <circle cx="26" cy="66" r="11" fill="#0E121B" stroke="#2BB0DE" stroke-width="2"/>
+          <circle cx="92" cy="66" r="11" fill="#0E121B" stroke="#2BB0DE" stroke-width="2"/>
+          <line x1="0" y1="34" x2="112" y2="34" stroke="#2BB0DE" stroke-width="1"/>
+        </g>
+        <circle cx="90" cy="90" r="3" fill="#2BB0DE"/>
+        <circle cx="410" cy="260" r="3" fill="#2BB0DE"/>
+        <circle cx="230" cy="60" r="3" fill="#2BB0DE"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SEGMENTS ================= -->
+<section id="layanan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Untuk siapa pun yang bepergian</span>
+      <h2>Sembilan gaya perjalanan, satu tim yang mengurus semuanya</h2>
+      <p>Setiap kelompok punya kebutuhan berbeda — pilih kategori di bawah untuk melihat layanan yang paling relevan dengan rombongan Anda.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-pill active" data-filter="semua">Semua</button>
+      <button class="filter-pill" data-filter="keluarga">Keluarga & Grup</button>
+      <button class="filter-pill" data-filter="solo">Solo & Milenial</button>
+      <button class="filter-pill" data-filter="edukasi">Edukasi</button>
+      <button class="filter-pill" data-filter="korporat">Korporat & MICE</button>
+      <button class="filter-pill" data-filter="religi">Religi</button>
+      <button class="filter-pill" data-filter="senior">Senior & Leisure</button>
+    </div>
+
+    <div class="seg-grid" id="segGrid">
+
+      <div class="seg-card" data-tags="edukasi">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+        <h3>Study Tour & Edukasi</h3>
+        <p>Kunjungan sekolah dan kampus dengan itinerary edukatif, pendampingan guru, dan jadwal yang disesuaikan kurikulum.</p>
+        <div class="seg-tags"><span>Pelajar</span><span>Rombongan besar</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="solo">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.2 6.6-6.6 2.2 2.2-6.6z"/></svg></div>
+        <h3>Open Trip & Solo Traveler</h3>
+        <p>Trip gabungan akhir pekan untuk kaum milenial yang ingin jalan sendiri tapi tetap dapat teman baru dan harga hemat.</p>
+        <div class="seg-tags"><span>Lajang</span><span>Budget–Mid</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="keluarga">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3.2"/><path d="M2 21v-1c0-3 3-5 7-5s7 2 7 5v1"/><circle cx="18" cy="8" r="2.6"/><path d="M22 21v-1c0-2.2-1.8-4-4.6-4.7"/></svg></div>
+        <h3>Family Trip & Family Gathering</h3>
+        <p>Liburan keluarga besar atau acara gathering kantor dengan armada nyaman dan aktivitas yang ramah segala usia.</p>
+        <div class="seg-tags"><span>Karyawan swasta</span><span>Keluarga</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="korporat">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+        <h3>Korporat & MICE</h3>
+        <p>Perjalanan dinas, meeting luar kota, insentif, hingga konferensi — lengkap dengan dokumentasi dan invoice resmi.</p>
+        <div class="seg-tags"><span>Instansi</span><span>Pengusaha</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="religi">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V11l8-6 8 6v10"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/><path d="M12 5V2"/></svg></div>
+        <h3>Wisata Religi & Ziarah</h3>
+        <p>Perjalanan ziarah dan program religi dengan pembimbing berpengalaman serta jadwal ibadah yang diperhatikan.</p>
+        <div class="seg-tags"><span>Rombongan</span><span>Semua usia</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="senior keluarga">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M4.9 4.9l2.8 2.8M2 12h4M4.9 19.1l2.8-2.8M12 22v-4M19.1 19.1l-2.8-2.8M22 12h-4M19.1 4.9l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Leisure & Cruise Senior</h3>
+        <p>Ritme perjalanan santai untuk lansia dan keluarga besar, termasuk pilihan cruise dan akomodasi yang mudah diakses.</p>
+        <div class="seg-tags"><span>Lansia</span><span>Nyaman</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="solo">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h1l2-13h12l2 13h1"/><path d="M8 18v-5a4 4 0 0 1 8 0v5"/></svg></div>
+        <h3>Adventure & Alam</h3>
+        <p>Trekking gunung, susur pantai, dan rute terbuka untuk pencinta alam yang ingin sedikit adrenalin.</p>
+        <div class="seg-tags"><span>Petualang</span><span>Aktif</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="solo keluarga">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v6a4 4 0 0 0 8 0V2"/><path d="M12 12v10"/></svg></div>
+        <h3>Culinary & Wine Journey</h3>
+        <p>Rute perjalanan yang disusun mengikuti jalur kuliner lokal dan pengalaman mencicipi khas daerah tujuan.</p>
+        <div class="seg-tags"><span>Penikmat rasa</span><span>Mid–Luxury</span></div>
+      </div>
+
+      <div class="seg-card" data-tags="solo senior">
+        <div class="seg-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-4 8-8.5 8-13a8 8 0 1 0-16 0c0 4.5 3 9 8 13Z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+        <h3>Wellness & Retreat</h3>
+        <p>Program ketenangan seperti retreat, spa, dan destinasi alam untuk melepas penat dari rutinitas.</p>
+        <div class="seg-tags"><span>Ketenangan</span><span>Mid–Luxury</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+<section id="destinasi" class="dest light-on-dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag light">Domestik & internasional</span>
+      <h2>Rute yang paling sering dipesan</h2>
+      <p>Baik menjelajah dalam negeri maupun keluar negeri, itinerary disusun berdasarkan musim, kuota rombongan, dan anggaran.</p>
+    </div>
+
+    <div class="dest-tabs">
+      <button class="dest-tab active" data-dest="domestik">Domestik</button>
+      <button class="dest-tab" data-dest="internasional">Internasional</button>
+    </div>
+
+    <div class="dest-list active" id="dest-domestik">
+      <div class="dest-row"><div><div class="name">Bali</div><div class="desc">Trip klasik dan honeymoon</div></div><span class="badge">Populer</span></div>
+      <div class="dest-row"><div><div class="name">Yogyakarta</div><div class="desc">Budaya, kuliner, study tour</div></div><span class="badge">Populer</span></div>
+      <div class="dest-row"><div><div class="name">Lombok & Gili</div><div class="desc">Pantai dan open trip</div></div></div>
+      <div class="dest-row"><div><div class="name">Labuan Bajo</div><div class="desc">Komodo & sailing trip</div></div></div>
+      <div class="dest-row"><div><div class="name">Bromo–Ijen</div><div class="desc">Adventure & sunrise chasing</div></div></div>
+      <div class="dest-row"><div><div class="name">Raja Ampat</div><div class="desc">Diving & wisata premium</div></div></div>
+    </div>
+
+    <div class="dest-list" id="dest-internasional">
+      <div class="dest-row"><div><div class="name">Jepang</div><div class="desc">Tokyo–Osaka, musim sakura</div></div><span class="badge">Populer</span></div>
+      <div class="dest-row"><div><div class="name">Korea Selatan</div><div class="desc">Seoul–Busan, city tour</div></div><span class="badge">Populer</span></div>
+      <div class="dest-row"><div><div class="name">Eropa</div><div class="desc">Paris, Swiss, Italia</div></div></div>
+      <div class="dest-row"><div><div class="name">Singapura–Malaysia</div><div class="desc">Weekend getaway keluarga</div></div></div>
+      <div class="dest-row"><div><div class="name">Tanah Suci</div><div class="desc">Umrah & ziarah</div></div></div>
+      <div class="dest-row"><div><div class="name">Australia</div><div class="desc">Alam & wisata premium</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEWA KENDARAAN ================= -->
+<section id="sewa" class="fleet">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Bukan cuma paket wisata jauh</span>
+      <h2>Sewa mobil & Hiace untuk kebutuhan sehari-hari</h2>
+      <p>Kondangan mendadak, wisuda anak, atau harus antar keluarga berobat — tidak semua orang butuh paket wisata berhari-hari. Layanan carter harian ini bisa dipakai satu hari, tanpa itinerary panjang.</p>
+    </div>
+
+    <div class="fleet-grid">
+      <div class="fleet-card">
+        <div class="fleet-top">
+          <div class="fleet-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4l-2-5H7l-2 5v4Z"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></div>
+          <span class="fleet-cap">4–6 penumpang</span>
+        </div>
+        <h3>Mobil Kecil</h3>
+        <p class="fleet-desc">Sedan/MPV untuk perjalanan personal atau keluarga kecil, lincah untuk keperluan dalam kota maupun luar kota jarak dekat.</p>
+        <ul class="fleet-use">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Jagong / kondangan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antar-jemput orang sakit / berobat</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antar-jemput bandara / stasiun</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Keperluan pribadi mendadak</li>
+        </ul>
+        <p class="fleet-note">Tersedia dengan sopir atau lepas kunci.</p>
+        <a class="btn btn-dark" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20mau%20tanya%20sewa%20mobil%20kecil" target="_blank" rel="noopener">Tanya harga sewa</a>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fleet-top">
+          <div class="fleet-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="17" height="9" rx="2"/><path d="M19 11h2.5a1 1 0 0 1 .9.55L24 15v2h-5"/><circle cx="7" cy="19" r="1.7"/><circle cx="16.5" cy="19" r="1.7"/></svg></div>
+          <span class="fleet-cap">12–15 penumpang</span>
+        </div>
+        <h3>Hiace / Elf Travel</h3>
+        <p class="fleet-desc">Untuk rombongan sedang yang tetap ingin berangkat bersama satu kendaraan, tanpa perlu paket wisata multi-hari.</p>
+        <ul class="fleet-use">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Wisuda & acara kampus</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kondangan keluarga besar</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antar-jemput karyawan / rombongan kantor</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Study tour jarak dekat</li>
+        </ul>
+        <p class="fleet-note">Sopir berpengalaman, BBM & tol menyesuaikan kesepakatan.</p>
+        <a class="btn btn-primary" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20mau%20tanya%20sewa%20Hiace" target="_blank" rel="noopener">Tanya harga sewa</a>
+      </div>
+    </div>
+
+    <div class="fleet-chip-row">
+      <span class="fleet-chip">Sewa harian</span>
+      <span class="fleet-chip">Dalam kota & luar kota</span>
+      <span class="fleet-chip">Dengan / tanpa sopir</span>
+      <span class="fleet-chip">Bisa dadakan (subject to ketersediaan)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIERS ================= -->
+<section id="paket">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Sesuaikan dengan anggaran</span>
+      <h2>Tiga tingkat layanan, satu standar keamanan</h2>
+      <p>Dari backpacker hingga yang mencari kenyamanan penuh — anggaran berbeda, kualitas armada dan pendampingan tetap terjaga.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card">
+        <span class="tier-name">EKONOMIS</span>
+        <h3>Budget Trip</h3>
+        <p class="tier-desc">Cocok untuk pelajar, backpacker, dan open trip solo dengan efisiensi biaya.</p>
+        <ul class="tier-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Transportasi bersama (shared)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Akomodasi bintang 2–3</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Itinerary standar</li>
+        </ul>
+        <a class="btn btn-dark" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20mau%20tanya%20paket%20Budget%20Trip" target="_blank" rel="noopener">Tanya paket ini</a>
+      </div>
+
+      <div class="tier-card feat">
+        <span class="tier-name">REGULER</span>
+        <h3>Family & Group</h3>
+        <p class="tier-desc">Pilihan paling diminati keluarga, karyawan swasta, dan rombongan sekolah.</p>
+        <ul class="tier-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Armada privat sesuai rombongan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Akomodasi bintang 3–4</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pemandu pendamping penuh</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Itinerary bisa disesuaikan</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20mau%20tanya%20paket%20Family%20%26%20Group" target="_blank" rel="noopener">Tanya paket ini</a>
+      </div>
+
+      <div class="tier-card">
+        <span class="tier-name">EKSKLUSIF</span>
+        <h3>Premium & MICE</h3>
+        <p class="tier-desc">Untuk pengusaha, honeymoon, dan acara korporat yang butuh detail maksimal.</p>
+        <ul class="tier-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Armada modern eksklusif</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hotel bintang 5 / resort</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Concierge personal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Itinerary custom penuh</li>
+        </ul>
+        <a class="btn btn-dark" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20mau%20tanya%20paket%20Premium%20%26%20MICE" target="_blank" rel="noopener">Tanya paket ini</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Alasan memilih kami</span>
+      <h2>Bukan sekadar antar-jemput</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Armada milik sendiri</h3>
+        <p>Bukan sewa dadakan — kondisi kendaraan dan jadwal lebih terkontrol.</p>
+      </div>
+      <div class="why-item">
+        <h3>Legalitas resmi</h3>
+        <p>Izin usaha perjalanan lengkap, aman untuk kerja sama instansi maupun sekolah.</p>
+      </div>
+      <div class="why-item">
+        <h3>Itinerary fleksibel</h3>
+        <p>Rute bisa disesuaikan dengan tema acara, bukan paket kaku yang sama untuk semua.</p>
+      </div>
+      <div class="why-item">
+        <h3>Satu kontak, semua urusan</h3>
+        <p>Dari konsultasi sampai kepulangan, komunikasi lewat satu nomor yang sama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="proses" class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Cara memesan</span>
+      <h2>Lima langkah sampai berangkat</h2>
+    </div>
+    <div class="process-row">
+      <div class="p-step"><span class="num">01</span><h3>Konsultasi</h3><p>Ceritakan rombongan, tujuan, dan tanggal via WhatsApp.</p></div>
+      <div class="p-step"><span class="num">02</span><h3>Pilih paket</h3><p>Tentukan tingkat layanan dan destinasi, atau minta itinerary custom.</p></div>
+      <div class="p-step"><span class="num">03</span><h3>Konfirmasi</h3><p>Rincian biaya dan jadwal dikirim tertulis untuk disetujui.</p></div>
+      <div class="p-step"><span class="num">04</span><h3>Persiapan</h3><p>Dokumen, akomodasi, dan armada disiapkan sebelum keberangkatan.</p></div>
+      <div class="p-step"><span class="num">05</span><h3>Berangkat</h3><p>Pemandu mendampingi selama perjalanan berlangsung.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimoni">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Kata mereka yang sudah berangkat</span>
+      <h2>Cerita dari berbagai jenis perjalanan</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="quote">Rombongan sekolah kami 120 anak, semua terkoordinasi rapi. Guru pendamping tinggal ikut jadwal saja.</p>
+        <div class="test-who"><div class="test-avatar">R</div><div><div class="name">Ratna</div><div class="role">Koordinator study tour</div></div></div>
+      </div>
+      <div class="test-card">
+        <p class="quote">Ikut open trip sendirian tapi pulang-pulang punya teman baru satu angkatan. Armadanya nyaman untuk perjalanan jauh.</p>
+        <div class="test-who"><div class="test-avatar">D</div><div><div class="name">Dimas</div><div class="role">Peserta open trip</div></div></div>
+      </div>
+      <div class="test-card">
+        <p class="quote">Family gathering kantor jadi lebih tertata, dari transportasi sampai venue acara sudah dipikirkan sekaligus.</p>
+        <div class="test-who"><div class="test-avatar">S</div><div><div class="name">Sri</div><div class="role">HR, perusahaan swasta</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BANNER ================= -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2>Ceritakan rencana perjalanan Anda, biar kami yang susun rutenya.</h2>
+    <p>Balasan cepat, tanpa antre telepon layanan pelanggan.</p>
+    <a class="btn btn-primary" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20ingin%20merencanakan%20perjalanan" target="_blank" rel="noopener">Chat Wahyu Sulis via WhatsApp</a>
+    <div class="contact-line">WhatsApp <b>+62 831-4446-0008</b> — SW Trans Tour & Travel</div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="sw-trans-logo.jfif" alt="Logo SW Trans">
+          <span>SW Trans Tour & Travel</span>
+        </div>
+        <p style="font-size:13.5px;line-height:1.7;max-width:280px;">Melayani study tour, open trip, family gathering, korporat, wisata religi, hingga leisure premium — domestik dan internasional.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Study Tour</a></li>
+          <li><a href="#layanan">Open Trip</a></li>
+          <li><a href="#layanan">Family Gathering</a></li>
+          <li><a href="#layanan">Korporat & MICE</a></li>
+          <li><a href="#layanan">Wisata Religi</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="#destinasi">Destinasi</a></li>
+          <li><a href="#paket">Paket & Harga</a></li>
+          <li><a href="#proses">Cara Pesan</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="https://wa.me/6283144460008" target="_blank" rel="noopener">WhatsApp: +62 831-4446-0008</a></li>
+          <li><a href="#">Wahyu Sulis — SW Trans</a></li>
+          <li><a href="#">Surakarta, Jawa Tengah</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SW Trans Tour & Travel. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat untuk melayani setiap gaya perjalanan.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLOAT ================= -->
+<a class="wa-float" href="https://wa.me/6283144460008?text=Halo%20SW%20Trans%2C%20saya%20ingin%20tanya%20paket%20wisata" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#0E121B"><path d="M20.5 3.5A11 11 0 0 0 3 17.7L2 22l4.4-1.15A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.26l-.33-.2-3 .8.8-2.9-.2-.33A9 9 0 1 1 12 20.5Zm4.9-6.7c-.27-.14-1.6-.8-1.85-.9-.25-.09-.43-.14-.6.14-.18.27-.7.9-.86 1.08-.16.18-.3.2-.58.07-.27-.14-1.15-.42-2.2-1.35-.8-.72-1.35-1.6-1.5-1.88-.16-.27-.02-.42.12-.56.13-.13.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.45-.83-2-.22-.52-.44-.45-.6-.46h-.5c-.18 0-.47.07-.72.34-.25.27-.94.92-.94 2.24s.96 2.6 1.1 2.78c.14.18 1.9 2.9 4.6 4.06.64.28 1.14.44 1.53.56.64.2 1.23.17 1.7.1.52-.08 1.6-.65 1.83-1.28.22-.63.22-1.16.16-1.28-.07-.12-.25-.18-.52-.32Z"/></svg>
+</a>
+
+<script>
+  // Segment filter
+  const pills = document.querySelectorAll('.filter-pill');
+  const cards = document.querySelectorAll('.seg-card');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const f = pill.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.tags;
+        card.hidden = !(f === 'semua' || tags.includes(f));
+      });
+    });
+  });
+
+  // Destination tabs
+  const destTabs = document.querySelectorAll('.dest-tab');
+  destTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      destTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.dest-list').forEach(l => l.classList.remove('active'));
+      document.getElementById('dest-' + tab.dataset.dest).classList.add('active');
+    });
+  });
+
+  // Mobile nav toggle (simple show/hide of link list)
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute;top:76px;left:0;right:0;background:#0E121B;flex-direction:column;padding:20px 28px;gap:18px;border-bottom:1px solid rgba(255,255,255,0.1);';
+  });
+</script>
+
+</body>
+</html>
